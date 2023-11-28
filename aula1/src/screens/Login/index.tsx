@@ -13,7 +13,7 @@ export default function Login() {
             <Input mt={2} />
             <Flex width='100%'>
                 <Button 
-                    content="Sign in2" 
+                    content="Sign in" 
                     variation="primary" 
                     handleClick={() => { userData.setUser({name: "Teste", email:"teste@gmail.com"}) }} 
                 />

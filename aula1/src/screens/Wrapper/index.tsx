@@ -6,6 +6,6 @@ import {useContext} from 'react';
 export default function Wrapper() {
     const userData = useContext(UserContext);
     return (
-        userData.user != null ? <Login/> : <Home/> 
+        userData.user != null ? <Home/>  : <Login/>
     )
 }
