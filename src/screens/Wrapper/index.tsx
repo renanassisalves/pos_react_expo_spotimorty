@@ -1,11 +1,9 @@
-import UserContext from "../../context/user";
 import Home from "../Home";
+import { useContext } from "react";
+import UserContext from "../../context/user";
 import Login from "../Login";
-import {useContext} from 'react';
 
 export default function Wrapper() {
-    const userData = useContext(UserContext);
-    return (
-        userData.user != null ? <Home/>  : <Login/>
-    )
+  const userData = useContext(UserContext);
+  return userData.user != null ? <Home></Home> : <Login />;
 }
