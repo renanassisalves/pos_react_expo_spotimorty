@@ -1,18 +1,22 @@
-import { Button as NativeButton } from "native-base";
+import { ColorMode, Button as NativeButton } from "native-base";
 
 interface Props {
   content: string;
-  variation?: string;
+  colorMode: ColorMode;
   handleClick: () => void;
 }
 
 export default function Button({
   content,
-  variation = "primary",
+  colorMode,
   handleClick,
 }: Props) {
   return (
-    <NativeButton bg={`${variation}.100`} mt={3} onPress={handleClick}>
+    <NativeButton 
+    bg={colorMode == 'light' ? 'primary.100' : 'secondary.100'} 
+    _text={colorMode == 'dark' ? {color: 'primary.100'} : {color: 'secondary.100'}}
+    mt={3}
+    onPress={handleClick}>
       {content}
     </NativeButton>
   );

@@ -1,4 +1,4 @@
-import Home from "../Home";
+import Home from "../Musicas";
 import { useContext } from "react";
 import UserContext from "../../context/user";
 import Login from "../Login";

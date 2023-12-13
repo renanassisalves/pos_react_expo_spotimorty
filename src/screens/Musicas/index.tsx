@@ -5,7 +5,8 @@ import { FlatList, Alert } from "react-native";
 import Card from "../../components/Card";
 import Selected from "../../components/Selected";
 import { getAlbums } from "../../services/albums";
-export default function Home() {
+
+export default function Musicas() {
   const userData = useContext(UserContext);
   const [selectedAlbum, setSelectedAlbum] = useState("");
   const [albums, setAlbums] = useState([]);
@@ -31,7 +32,7 @@ export default function Home() {
       bg="primary.100"
     >
       <Heading color="secondary.100" fontSize="4xl">
-        Wellcome back {userData.user.name}
+        Welcome back {userData.user.name}
       </Heading>
       <FlatList
         data={albums}
