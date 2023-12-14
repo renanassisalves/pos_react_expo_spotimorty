@@ -14,6 +14,8 @@ import Home from "./src/screens/Musicas";
 import Menu from "./src/screens/Menu";
 import Musicas from "./src/screens/Musicas";
 import RickMorty from "./src/screens/RickMorty";
+import { iCharacter, CharacterContextProvider } from "./src/context/characters";
+
 
 export const storage = new MMKV({
   id: "movieapp",
@@ -21,6 +23,7 @@ export const storage = new MMKV({
 
 export default function App() {
   const [user, setUser] = useState<IUser | null>(null);
+
 
   useEffect(() => {
     if (user != null) {
@@ -40,15 +43,17 @@ export default function App() {
   return (
     <NativeBaseProvider theme={THEME}>
       <UserContext.Provider value={{ user: user, setUser }}>
-      <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Cadastrar" component={Cadastro} />
-        <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="Musicas" component={Musicas} />
-        <Stack.Screen name="RickMorty" component={RickMorty} />
-      </Stack.Navigator>
-      </NavigationContainer>
+        <CharacterContextProvider>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Login">
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Cadastrar" component={Cadastro} />
+              <Stack.Screen name="Menu" component={Menu} />
+              <Stack.Screen name="Musicas" component={Musicas} />
+              <Stack.Screen name="RickMorty" component={RickMorty} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </CharacterContextProvider>
       </UserContext.Provider>
     </NativeBaseProvider>
   );
