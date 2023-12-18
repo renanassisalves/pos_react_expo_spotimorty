@@ -6,6 +6,15 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "firebase": {
+      "apiKey": "AIzaSyDDQNOPqLOY16okiUzpbKS__HURLZGZ4Qw",
+      "authDomain": "react-native-f3611.firebaseapp.com",
+      "projectId": "react-native-f3611",
+      "storageBucket": "react-native-f3611.appspot.com",
+      "messagingSenderId": "235207098028",
+      "appId": "1:235207098028:web:438a0a0c3ec00815d7e909",
+      "measurementId": "G-D4ZVG9Z2Z0"
+    },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -17,11 +26,15 @@
     "ios": {
       "supportsTablet": true
     },
+    "plugins": [
+      "@react-native-firebase/app"
+    ],
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "googleServicesFile": "./google-services.json",
       "package": "com.renanassis.loginscreen"
     },
     "web": {

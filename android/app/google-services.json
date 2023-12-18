@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "235207098028",
+    "project_id": "react-native-f3611",
+    "storage_bucket": "react-native-f3611.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235207098028:android:80ff52a8ca42e92ad7e909",
+        "android_client_info": {
+          "package_name": "com.renanassis.loginscreen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgNkHrfUv0WEGMytHxqcUplJIqoDrbfy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
