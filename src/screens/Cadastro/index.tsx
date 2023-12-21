@@ -6,7 +6,7 @@ import UserContext from "../../context/user";
 import { login } from "../../services/auth";
 import { register } from "../../services/register";
 
-export default function Cadastro({navigation}) {
+export default function CadastroScreen({navigation}) {
   const userData = useContext(UserContext);
 
   userData.user?.token;

@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "native-base";
+import { Flex, Heading, Text, Image, Progress } from "native-base";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/user";
 import { FlatList, Alert } from "react-native";
@@ -6,16 +6,11 @@ import Card from "../../components/Card";
 import Selected from "../../components/Selected";
 import { getAlbums } from "../../services/albums";
 
-export default function Musicas() {
+export default function MusicasScreen() {
   const userData = useContext(UserContext);
-  const [selectedAlbum, setSelectedAlbum] = useState("");
+  const [selectedAlbum, setSelectedAlbum] = useState("Nenhum álbum selecionado");
+  const [selectedAlbumImage, setSelectedAlbumImage] = useState("https://img.freepik.com/vetores-premium/mock-up-da-capa-do-disco-de-vinil-em-cores-neon-retro-modelo-de-album-de-musica-antigo_257312-2356.jpg");
   const [albums, setAlbums] = useState([]);
-
-  useEffect(() => {
-    if (selectedAlbum == "Iron maden") {
-      Alert.alert("Parabéns!", "Voce selecionou um ótimo album!");
-    }
-  }, [selectedAlbum]);
 
   useEffect(() => {
     getAlbums(userData.user?.token)
@@ -42,12 +37,23 @@ export default function Musicas() {
             img={item.img}
             album={item.album}
             setSelectedAlbum={setSelectedAlbum}
+            setSelectedAlbumImage={setSelectedAlbumImage}
           />
         )}
         keyExtractor={(item) => item.id}
         horizontal
       />
-      <Selected text={selectedAlbum} />
+      
+<Selected text={selectedAlbum} />
+      <Image
+        m={2}
+        source={{
+          uri: selectedAlbumImage,
+        }}
+        alt="Capa do álbum selecionado"
+        size="2xl"
+      />
+      
     </Flex>
   );
 }

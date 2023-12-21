@@ -6,7 +6,7 @@ import UserContext from "../../context/user";
 import { login } from "../../services/auth";
 
 
-export default function Login({navigation}) {
+export default function LoginScreen({navigation}) {
   const userData = useContext(UserContext);
 
   const {

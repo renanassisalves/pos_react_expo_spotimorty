@@ -10,7 +10,7 @@ export const storage = new MMKV({
 });
 
 
-export default function Login({navigation}) {
+export default function MenuScreen({navigation}) {
   const userData = useContext(UserContext);
   const {
     colorMode,
@@ -25,9 +25,10 @@ export default function Login({navigation}) {
         <Button content="Rick e Morty (GraphQL)" handleClick={() => {navigation.navigate("RickMorty")}} colorMode={colorMode} />
         <Button content="Teste de Notificações Push" handleClick={() => {navigation.navigate("Notificacoes")}} colorMode={colorMode} />
         <Button content="Deslogar" handleClick={() => {
-          userData.user = null;
+          // userData.user = null;
+          userData.setUser(null);
           storage.set("user", JSON.stringify(null));
-          navigation.navigate("Wrapper")
+          navigation.navigate("Wrapper");
           }} colorMode={colorMode} />
       </Flex>
       <Pressable mt="20" onPress={toggleColorMode} marginLeft="auto">

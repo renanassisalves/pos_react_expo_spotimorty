@@ -5,5 +5,5 @@ interface Props {
 }
 
 export default function Selected({ text }: Props) {
-  return <Text color="secondary.100">{text}</Text>;
+  return <Text color="secondary.100" fontSize={"4xl"} textAlign={"center"}>{text}</Text>;
 }

@@ -6,7 +6,6 @@ export async function sendPushNotification(expoPushToken : String, title : Strin
       body: body,
       data: { someData: '{Json Exemplo}' },
     };
-  console.log("enviado", title, body);
     await fetch('https://exp.host/--/api/v2/push/send', {
       method: 'POST',
       headers: {
@@ -15,5 +14,5 @@ export async function sendPushNotification(expoPushToken : String, title : Strin
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(message),
-    }).then((erro) => console.log(erro));
+    });
   }

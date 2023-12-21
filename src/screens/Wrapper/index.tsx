@@ -1,20 +1,16 @@
-import { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import UserContext from "../../context/user";
-import Login from "../Login";
-import { Menu } from "native-base";
+
+import MenuScreen from "../Menu";
+import LoginScreen from "../Login";
 
 export default function Wrapper({navigation}) {
   const userData = useContext(UserContext);
   console.log(userData.user);
-  useEffect(() => {
-    userData.user != null ? 
-    navigation.navigate("Menu")
-    :
-    navigation.navigate("Login");
-  }, []);
 
-  return userData.user != null ? 
-  navigation.navigate("Menu")
-  :
-  navigation.navigate("Login");
+  return userData.user != null ? (
+    <MenuScreen navigation={navigation} /> // Render Menu directly
+  ) : (
+    <LoginScreen navigation={navigation} /> // Render Login directly
+  );
 }

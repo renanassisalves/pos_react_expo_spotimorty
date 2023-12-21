@@ -5,11 +5,15 @@ interface Props {
   album: string;
   img: string;
   setSelectedAlbum: (album: string) => void;
+  setSelectedAlbumImage: (img: string) => void;
 }
 
-export default function Card({ img, album, setSelectedAlbum }: Props) {
+export default function Card({ img, album, setSelectedAlbum, setSelectedAlbumImage }: Props) {
   return (
-    <TouchableOpacity onPress={() => setSelectedAlbum(album)}>
+    <TouchableOpacity onPress={() => {
+      setSelectedAlbum(album)
+      setSelectedAlbumImage(img)
+      }}>
       <Image
         m={2}
         source={{
