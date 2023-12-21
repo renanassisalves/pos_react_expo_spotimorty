@@ -50,12 +50,12 @@ function RickMortyComponent() {
   );
 }
 
-export default function RickMorty() {
+export default function RickMortyScreen() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <ApolloProvider client={client}>
-      <Flex backgroundColor={colorMode == 'dark' ? 'primary.100' : 'secondary.100'}>
+      <Flex backgroundColor={colorMode == 'dark' ? 'primary.100' : 'secondary.100'} alignItems={"center"}>
         <Pressable m="5" onPress={toggleColorMode} marginRight="auto">
           {colorMode === 'light' ? (
             <MoonIcon color="coolGray.800" size="6" />
@@ -67,14 +67,14 @@ export default function RickMorty() {
         <Image
           m={2}
           source={{
-            uri: 'https://1000logos.net/wp-content/uploads/2022/03/Rick-and-Morty.png',
+            uri: 'https://logos-world.net/wp-content/uploads/2022/01/Rick-And-Morty-Logo.png',
           }}
           alt='Rick Morty logo'
-          width={400}
+          width={350}
           height={120}
         />
 
-        <ScrollView mb={200}>
+        <ScrollView>
           <RickMortyComponent />
         </ScrollView>
       </Flex>

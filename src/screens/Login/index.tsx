@@ -1,4 +1,4 @@
-import { Flex, Heading, Input, Text, ColorMode, useColorMode, IconButton, Icon, MoonIcon, Pressable, SunIcon, Container } from "native-base";
+import { Flex, Heading, Input, Text, useColorMode, MoonIcon, Pressable, SunIcon } from "native-base";
 import { Alert } from "react-native";
 import { useContext, useState } from "react";
 import Button from "../../components/Button";
@@ -17,6 +17,7 @@ export default function Login({navigation}) {
   userData.user?.token;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const handleLogin = () => {
     login({
       username: username,
@@ -24,8 +25,8 @@ export default function Login({navigation}) {
     })
       .then(function (response) {
         userData.setUser({
-          name: "Gabriel",
-          email: "gabrielgs1408@gmail.com",
+          name: "Usuário teste",
+          email: "teste.testando@gmail.com",
           token: response.data.token,
         });
         navigation.navigate('Menu');

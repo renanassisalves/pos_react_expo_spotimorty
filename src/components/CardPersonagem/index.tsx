@@ -10,7 +10,7 @@ interface Props {
 
 export default function Card({ name, species, gender, image }: Props) {
   return (
-    <Flex alignItems={"center"}>
+    <Flex alignItems={"center"} mb={5}>
       <Container
       _dark={{backgroundColor: "secondary.100"}}
       _light={{backgroundColor: "primary.100"}}
