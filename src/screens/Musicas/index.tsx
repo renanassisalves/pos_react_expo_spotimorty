@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Image, Progress } from "native-base";
+import { Flex, Heading, Text, Image, Progress, MoonIcon, Pressable, SunIcon, useColorMode } from "native-base";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/user";
 import { FlatList, Alert } from "react-native";
@@ -11,6 +11,11 @@ export default function MusicasScreen() {
   const [selectedAlbum, setSelectedAlbum] = useState("Nenhum álbum selecionado");
   const [selectedAlbumImage, setSelectedAlbumImage] = useState("https://img.freepik.com/vetores-premium/mock-up-da-capa-do-disco-de-vinil-em-cores-neon-retro-modelo-de-album-de-musica-antigo_257312-2356.jpg");
   const [albums, setAlbums] = useState([]);
+  
+  const {
+    colorMode,
+    toggleColorMode
+  } = useColorMode();
 
   useEffect(() => {
     getAlbums(userData.user?.token)
@@ -24,9 +29,16 @@ export default function MusicasScreen() {
       p={5}
       justifyContent="center"
       alignItems="center"
-      bg="primary.100"
+      bg={ colorMode === "light" ? "primary.100" : "secondary.100"}
     >
-      <Heading color="secondary.100" fontSize="4xl">
+       <Pressable mt="1" onPress={toggleColorMode} marginLeft="auto">
+        {colorMode === "light" ? (
+          <MoonIcon color="secondary.100" size="6" />
+        ) : (
+          <SunIcon color="primary.100" size="6" />
+        )}
+      </Pressable>
+      <Heading color={colorMode === "light" ? "secondary.100" : "primary.100" } fontSize="4xl">
         Welcome back {userData.user.name}
       </Heading>
       <FlatList
@@ -44,7 +56,7 @@ export default function MusicasScreen() {
         horizontal
       />
       
-<Selected text={selectedAlbum} />
+<Selected text={selectedAlbum} color={colorMode === "light" ? "secondary.100" : "primary.100"} />
       <Image
         m={2}
         source={{

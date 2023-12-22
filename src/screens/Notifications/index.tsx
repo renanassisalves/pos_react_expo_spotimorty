@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Text, View, Input, useColorMode } from 'native-base';
+import { Text, View, Input, useColorMode, MoonIcon, Pressable, SunIcon } from 'native-base';
 import Button from '../../components/Button';
 import * as Notifications from 'expo-notifications';
 import { registerForPushNotificationsAsync } from '../../services/notification-register';
@@ -20,6 +20,7 @@ export default function NotificationScreen() {
       } = useColorMode();
 
     useEffect(() => {
+      colorMode === "dark" ? toggleColorMode() : colorMode;
       registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
   
       notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
