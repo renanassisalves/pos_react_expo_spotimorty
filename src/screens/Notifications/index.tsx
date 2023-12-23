@@ -28,7 +28,7 @@ export default function NotificationScreen() {
       });
   
       responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-        console.log(response);
+        alert('Clicou na notificação');
       });
   
       return () => {

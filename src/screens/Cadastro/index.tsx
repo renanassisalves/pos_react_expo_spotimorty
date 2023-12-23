@@ -62,8 +62,10 @@ export default function CadastroScreen({navigation}) {
   return (
     <Flex p={5} flex={1} justifyContent="center" alignItems="center" backgroundColor={colorMode == 'dark' ? 'primary.100' : 'secondary.100'}>
       <Heading>Cadastrar</Heading>
+      <Text mt={5}>Nome de usuário</Text>
       <Input mt={2} onChangeText={(value) => setUsername(value)} />
-      <Input mt={2} onChangeText={(value) => setPassword(value)} />
+      <Text mt={2}>Senha</Text>
+      <Input mt={2} onChangeText={(value) => setPassword(value)} type="password" />
       {/* <Input mt={2} onChangeText={(value) => setEmail(value)} /> */}
       <Flex width="100%">
         <Button content="Cadastrar" handleClick={handleRegister} colorMode={colorMode}/>

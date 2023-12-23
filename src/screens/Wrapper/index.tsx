@@ -9,8 +9,8 @@ export default function Wrapper({navigation}) {
   console.log(userData.user);
 
   return userData.user != null ? (
-    <MenuScreen navigation={navigation} /> // Render Menu directly
+    <MenuScreen navigation={navigation} /> 
   ) : (
-    <LoginScreen navigation={navigation} /> // Render Login directly
+    <LoginScreen navigation={navigation} />
   );
 }
